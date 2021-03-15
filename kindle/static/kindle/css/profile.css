@@ -1,0 +1,25 @@
+.info a{
+    text-decoration: none;
+    float: right;
+}
+.info span{
+    font-size: 45px;
+    font-weight: bold;
+}
+.info{
+    padding-bottom: 30px;
+}
+.info2 span{
+    padding-left: 10px;
+}
+.user{
+    float: left;
+    padding-left: 2%;
+    padding-top: 3%;
+    width: 65%;
+}
+.photo img{
+    float: left;
+    width: 25%;
+    margin: 3%;
+}

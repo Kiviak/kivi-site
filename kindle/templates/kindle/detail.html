@@ -1,0 +1,109 @@
+{% extends 'kindle/base_book.html' %}
+{% load static %}
+
+{% block localscript %}
+    <script src="{% static 'jquery-3.4.1.js' %}" ></script>
+    <script src="{% static 'kindle/js/detail.js' %}" ></script> 
+{% endblock localscript %}
+
+{% block localstyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'kindle/css/detail.css' %}">
+{% endblock localstyle %}
+
+{% block neck %}
+{% endblock neck %}  
+
+{% block layout %}
+    {% if book %}
+        <div class="book-name">
+            <h1>{{book.title}}</h1>
+        </div>
+        <div class="book-body">
+            <div class="book-image">
+                <img src="{% static 'cover/'|add:book.asin|add:'.jpg' %}" alt="">
+            </div>
+            <div class="book-info">              
+                {% if book.creator %}
+                    <span>作者：{{book.creator}}</span>
+                {% endif %}
+                {% if book.publisher %}
+                    <span>出版社：{{book.publisher}}</span>
+                {% endif %}
+                {% if book.isbn %}
+                    <span>ISBN：{{book.isbn}}</span>
+                {% endif %}
+                {% if 1 %}
+                    <span>出版时间：1984</span>
+                {% endif %}
+                {% if 1 %}
+                    <span>文件格式：azw3</span>
+                {% endif %}
+            </div>
+        </div>      
+        <div class="book-tool">
+            <input id="read" type="button" value="在线预览" title="在线预览">
+            <input id="download" type="button" value="下载" title="下载">
+            <a id="down-link" href="{% url 'download' book.asin %}">下载</a>
+            <a class="star" href="" data-id="{{book.asin}}" >
+                <!-- title属性的作用是鼠标hover时显示提示信息 -->
+                <img title="收藏" class="unlike"  src="{% static 'png/'|add:'white-heart.png' %}" data-num="0">
+                <img title="取消收藏" class="like"  src="{% static 'png/'|add:'red-heart.png' %}" data-num="1" >
+            </a>
+        </div>
+        <div class="book-more">
+            <h1>简介</h1>
+            <div>{{ book.ebookintro_clean.intro | safe }}</div>
+        </div>    
+        <div class="book-review">
+            <h1>评论</h1>
+            <div class="review">                    
+                {% for item in reviews %}
+                <div class="review-item">
+                    <div>
+                        <span><strong>{{ item.user.username }}</strong></span>
+                        <span class="review-ctime">{{ item.createtime|date:"Y-m-d H:i:s" }}</span>
+                    </div>
+                    <div class="review-text">                          
+                        <p>{{ item.text }}</p>                               
+                        {% if item.ebookreviews.count  %}
+                            <div class="reply2reply">
+                                <div>
+                                    <span><strong>{{ item.ebookreviews.first.user.username }}</strong>  </span>
+                                </div>
+                                <p>{{ item.ebookreviews.first.text  }}</p>
+                            </div>
+                        {% endif %}                            
+                    </div>
+                    <div>
+                        <button class="review-reply" data-num="{{ item.id }}">回复</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="review-form">
+                <form  method="post" action="{% url 'detail' id %}">
+                    <input id="submit" type="submit" value="提交">
+                    {% csrf_token %}   
+                    <div>
+                        {{ form }}           
+                    </div>          
+                </form>
+            </div>
+        </div>
+        <div class="hidden-form">
+            <div class="form-main">
+                <form class="form-box" method="post" action="{% url 'detail' id %}">
+                    {% csrf_token %} 
+                    <input id="submit2" type="submit" value="提交">
+                    <input type="button" name="" value="关闭" id="shutdown">  
+                    <div>
+                        <textarea name="text" cols="40" rows="10" minlength="1" id="text2" required=""></textarea>           
+                    </div>  
+                    <input style="display: none;" type="text" name="code" value="1" id="hidden-code">        
+                </form>
+            </div>            
+        </div>        
+    {% endif %}
+{% endblock layout %}

@@ -1,0 +1,95 @@
+{% extends 'kindle/base_book.html' %}
+{% load static %}
+
+{% block localstyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'kindle/css/myself.css' %}">
+{% endblock localstyle %}
+
+{% block neck %}   
+{% endblock neck %}
+
+{% block layout %}
+<div class="main">
+    <div id="myphoto">
+        <img src="{% static 'photo.jpg' %}" alt="photo" title="photo">
+    </div>
+
+    <div id="mywechat">
+        <img src="{% static 'wechat.jpg' %}" alt="wechat" title="微信">
+    </div>
+    <div id="myinfo">
+        <div id="name">
+            <div>赵 峰</div>
+        </div>
+        <div id="info">
+            <span>男性 硕士 汉族 1987</span>
+        </div>
+        <div id="phone">
+            <span>电话：13203531689</span>
+            <span>微信：windschaos</span>
+            <span>邮箱：forfanqian2@hotmail.com</span>
+        </div>
+        <div id="site">
+            <span>个人网站：
+                <a href="http://34.196.222.222/" target="_blank">http://34.196.222.222/</a>
+            </span>
+            <span>github：
+                <a href="https://github.com/Kiviak" target="_blank">https://github.com/Kiviak</a>
+            </span>
+            <span>stackoverflow：
+                <a href="https://stackoverflow.com/users/4695394/kiviak" target="_blank">https://stackoverflow.com/users/4695394/kiviak</a>
+            </span>
+        </div>
+    </div>
+    <div id="myedu">
+        <div>
+            <h3>学历</h3>
+        </div>
+        <div>
+            <span>2011-2014</span>
+            <span>东南大学</span>
+            <span>自动化学院</span>
+            <span>模式识别与智能系统</span>
+            <span>硕士</span>
+        </div>
+        <div>
+            <span>2005-2010</span>
+            <span>太原理工大学</span>
+            <span>信息工程学院</span>
+            <span>自动化</span>
+            <span>本科</span>
+        </div>
+    </div>
+    <div id="mytec">
+        <div>
+            <h3>技能</h3>
+        </div>
+        <div class="py">
+            <span>熟练掌握 python 和各种常用库，如 requests  numpy</span>
+            <span>熟练使用 django 框架</span>
+        </div>
+        <div class="js">
+            <span>熟练掌握 js</span>
+            <span>熟练使用 html css jquery</span>
+        </div>
+        <div class="cpp">
+            <span>熟练掌握 c/c++</span>
+        </div>
+        <div class="unix">
+            <span>熟练掌握 unix/linux操作系统</span>
+            <span>掌握基本的算法和数据结构</span>
+            <span>熟练掌握网络编程，熟悉 tcp/ip http 协议</span>
+            <span>熟练使用 mysql，熟悉 redis elasticsearch</span>
+            <span>熟练使用 git docker等工具</span>
+        </div>
+        <div class="other"></div>
+    </div>
+    <div id="myjob">
+        <div>
+            <h3>工作经历</h3>
+        </div>
+    </div>
+</div>
+{% endblock layout %}
+        

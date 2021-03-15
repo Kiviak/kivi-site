@@ -1,0 +1,30 @@
+{% extends 'kindle/base_book.html' %}
+{% load static %}
+
+{% block localstyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'kindle/css/base_profile.css' %}">
+{% endblock localstyle %}
+
+{% block neck %}   
+{% endblock neck %}
+
+
+{% block layout %}
+    <div class="main">
+        <div class="menu">
+            <a class="menu-item menu-main" href="{% url 'profile' %}">账号信息</a>
+            <a class="menu-item menu-star menu-item-active" href="{% url 'profilestar' %}">收藏夹</a>
+        </div>
+        <div class="content">
+            
+            {% block content %}
+                
+            {% endblock content %}
+                
+        </div>
+    </div>
+    
+{% endblock layout %}
+    
+    

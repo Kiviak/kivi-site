@@ -1,0 +1,76 @@
+{% extends 'kindle/base.html' %}
+{% load static %}
+
+{% block localstyle %}
+    <link rel="stylesheet" href="{% static 'kindle/css/base_book.css' %}">
+{% endblock localstyle %}
+{% block head %} 
+    <div>
+        <div id="me">
+            <a href="{% url 'myself' %}" target="_blank">个人简历</a>
+            <a id="github" href="https://github.com/Kiviak/http-proxy.git" target="_blank">
+                <img src="{% static 'github-logo.jpg' %}" alt="github">
+                <span>source</span>
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="header">
+            <a class="sitelogo" href="{% url 'mainpage' %}"><span style="color: maroon;font: bolder;">K</span>iviak's</a>
+            {% if user.is_authenticated %}
+                <div class="userbar">
+                    <a id="user" href="{% url 'profile' %}">{{ user.username }}</a>
+                    <a id="logout" href="{% url 'logout' %}">退出</a>
+                </div>
+            {% else %}
+                <div class="userbar">
+                    <a id="login" href="{% url 'login' %}">登录</a>
+                    <a id="newuser" href="{% url 'signup' %}">注册</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>   
+{% endblock head %}   
+
+{% block neck %}
+    {% if form %}
+    <div class="search">
+        <form  action="{% url 'search'%}" method="get">
+            <input placeholder="输入书名,作者,出版社,isbn,asin等搜索" id="textbar" type="text" name="keyword" required>
+            <input id="go" type="submit" value="Go">
+        </form>
+    </div>
+    {% endif %}
+{% endblock neck %}
+{% block foot %}
+    <footer>
+        <div>
+            <span>Web framework:</span>
+            <span>Django</span>
+        </div>
+        <div>
+            <span>Page:</span>
+            <span>jQuery & CSS</span>
+        </div>
+        <div>
+            <span>Host:</span>
+            <span>AWS</span>
+        </div>
+        <div>
+            <span>Server:</span>
+            <span>Nginx & uWSGI</span>
+        </div>
+        <div>
+            <span>Database:</span>
+            <span>MySQL</span>
+        </div>
+        <div>
+            <span>Cache:</span>
+            <span>Redis</span>
+        </div>
+        <div>
+            <span>Search:</span>
+            <span>Elasticsearch</span>
+        </div>
+    </footer>
+{% endblock foot %}

@@ -1,0 +1,36 @@
+.myhead{
+    border-bottom: 3px solid #cdd1cd;
+    margin-bottom: 5px;
+    font-size: 20px;
+    padding-bottom: 2px;
+}
+.delete{
+    margin-left: 20px;
+    margin-bottom: 2px;
+    background-color: rgb(184, 236, 173);
+}
+#submit{
+    display:none;
+}
+.item{
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+.item span{
+    margin-left: 10px;
+}
+a{
+    text-decoration: none;
+}
+.page{
+    float: right;
+    margin-right: 5px;
+    padding: 2px;
+}
+.page-num{
+    font-style: italic;
+    font-size: 18px;
+    float: right;
+    margin-right: 20px;
+    margin-left: 20px;
+}

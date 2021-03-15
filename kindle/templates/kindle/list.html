@@ -1,0 +1,47 @@
+{% extends 'kindle/base_book.html' %}
+{% load static %}
+
+{% block localscript %}
+    <script src="{% static 'jquery-3.4.1.js' %}" ></script>
+    <script src="{% static 'kindle/js/pagination.js' %}" ></script>
+    <script src="{% static 'kindle/js/list.js' %}" ></script> 
+{% endblock localscript %}
+    
+{% block localstyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'kindle/css/pagelist.css' %}">
+{% endblock localstyle %}
+    
+{% block layout %}   
+    <div id="mainbox">
+        <div class="pagination" data-current="{{current_page.number}}" data-total="{{current_page.paginator.num_pages}}">     
+        </div>
+        <div id="itemsbox">                 
+        {% for book in current_page %}
+            <div class="item" data-id="{{book.asin}}">
+                <div class="cover">
+                    <a href="{% url  'detail'  book.asin %}">
+                        <img class="item-cover" src="{% static 'cover/'|add:book.asin|add:'.jpg' %}" alt="pg">
+                    </a>
+                </div>
+                <div class="item-title">
+                        <a href="{% url  'detail'  book.asin %}">
+                                {{book.title}}
+                        </a>
+                </div>
+                <div class="item-creator">
+                    <span>{{book.creator}}</span>                   
+                    <a class="star" href="" >
+                        <!-- title属性的作用是鼠标hover时显示提示信息 -->
+                        <img title="收藏" class="unlike"  src="{% static 'png/'|add:'white-heart.png' %}" data-num="0">
+                        <img title="取消收藏" class="like"  src="{% static 'png/'|add:'red-heart.png' %}" data-num="1" >
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="pagination" >
+        </div>
+    </div> 
+{% endblock layout %}
+      

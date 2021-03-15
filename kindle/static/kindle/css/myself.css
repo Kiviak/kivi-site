@@ -1,0 +1,53 @@
+.main{
+    width: 70%;
+    position: relative;
+    left: 15%;
+    padding-top: 3%;
+}
+#myphoto,#mywechat {
+    float: right;
+    margin-right: 5%;
+}
+#mywechat{
+    clear: both;
+}
+#myphoto img{
+    width: 120px;
+    margin-bottom: 15px;
+}
+#mywechat img{
+    width: 120px;
+}
+#myinfo span{
+    display: block;
+    margin-top: 3px;
+}
+#myinfo a{
+    text-decoration: none;
+}
+#myinfo div{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#name{
+    font-size: x-large;
+}
+#myedu{
+    clear: both;
+}
+#myedu span{
+    margin: 5px;
+}
+#myedu div{
+    margin-top: 5px;
+}
+#myedu h3,#mytec h3,#myjob h3{
+    padding-bottom: 3px;
+    border-bottom: 1px solid #000;
+}
+#mytec span{
+    display: block;
+}
+#mytec div{
+    margin-top: 7px;
+}

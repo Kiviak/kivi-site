@@ -1,0 +1,25 @@
+.auth{
+    position: relative;
+    left: 30%;
+    width: 30%;
+}
+.auth h2{
+    position: relative;
+    left: 40%;
+}
+#submit{
+    float: right;
+}
+input{
+    font-size: 16px;
+}
+p input{
+    width: 80%;
+    float: right;
+}
+p  label{
+    width: 20%;
+}
+.errorlist{
+    color: rgb(70, 163, 33);
+}

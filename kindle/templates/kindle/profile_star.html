@@ -1,0 +1,53 @@
+{% extends 'kindle/base_profile.html' %}
+{% load static %}
+
+{% block localscript %}
+    <script src="{% static 'jquery-3.4.1.js' %}" ></script>
+    <script src="{% static 'kindle/js/profile_star.js' %}" ></script> 
+    <script>
+        $(document).ready(function () {
+            $('.menu-item').removeClass('menu-item-active');
+            $('.menu-star').addClass('menu-item-active');
+        });
+    </script>
+{% endblock localscript %}
+
+{% block localstyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'kindle/css/profile_star.css' %}">
+{% endblock localstyle %}
+
+{% block content %}
+    <div class="box">
+        <div class="myhead">
+            <input type="checkbox" class="selectall" title="全选">
+            <label for="">全选</label>
+            <input type="button" class="delete" value="删除">
+            <span class="page-num">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+            {% if page.has_next %}
+                <a class="next page" title="下一页" href="{% url 'profilestar'  %}?p={{ page.next_page_number }}">next</a>
+            {% endif %}
+            {% if page.has_previous %}
+                <a class="pre page" title="上一页" href="{% url 'profilestar'  %}?p={{ page.previous_page_number }}">pre</a> 
+            {% endif %}
+        </div>
+        <div class="mybody">
+            <form method="POST" action="{% url 'profilestar'  %}">
+                {% csrf_token %}
+                {% for item in page.object_list %}
+                <div class="item">
+                    <input type="checkbox" name="{{ item.ebook.asin }}" value="{{ item.ebook.asin }}">
+                    <a href="{% url 'detail' item.ebook.asin %}">
+                        {{ item.ebook.title }}
+                    </a>
+                    <span>{{ item.ebook.creator }}</span>
+                </div>
+                {% endfor %}
+                <input id="submit" type="submit" value="提交">
+            </form>   
+        </div>
+    </div>  
+{% endblock content %}
+    
+{% block foot %}   
+{% endblock foot %}    

@@ -1,0 +1,19 @@
+{% extends 'kindle/base_book.html' %}
+{% load static %}
+
+{% block localstyle %}
+    {{ block.super }}
+    <!-- <link rel="stylesheet" href="{% static 'kindle/css/base_book.css' %}"> -->
+{% endblock localstyle %}
+
+
+{% block neck %}   
+{% endblock neck %}
+     
+{% block layout %}
+    <div>
+        <h2>{{ who }}:你已经退出登录</h2>
+    </div>
+{% endblock layout %}
+{% block foot %}   
+{% endblock foot %}    

@@ -1,0 +1,59 @@
+.header{
+    background-color: rgba(11, 161, 49, 0.212);
+    padding-left: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.sitelogo{
+    text-decoration: none;
+    color:black;
+    font-size:xx-large;
+}
+.userbar{
+    float: right;
+    margin-right: 2%;
+    padding: 5px;
+}
+.userbar a{
+    text-decoration: none;
+    /* margin-left: 1%; */
+}
+#me{
+    margin: 7px;
+    font-size: larger;
+}
+#me a{
+    text-decoration: none;
+}
+#github img{
+    width: 20px;
+}
+#github{
+    float: right;
+    font-size: smaller;
+    margin-right: 15px;
+}
+.search{
+    /* background-color: rgb(33, 197, 41); */
+    padding: 2%;
+}
+#textbar{
+    width: 85%;
+    height: 30px;
+}
+#go{
+    height: 30px;
+    width: 4%;
+}
+footer{
+    background-color: rgba(200, 204, 202, 0.336);
+    padding-left: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+    font-size: smaller;
+    clear: both;
+}
+footer span{
+    margin-right: 3px;
+}
