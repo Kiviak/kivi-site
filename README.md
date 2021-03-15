@@ -1,5 +1,5 @@
 # *kivi-site*  
-a ebook management site.[http://34.196.222.222/](http://34.196.222.222/)
+a ebook management site.see [http://34.196.222.222/](http://34.196.222.222/)
 ## features:  
 1. search
 2. online reading
